@@ -1,0 +1,36 @@
+{% load custom_filters %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Posts</title>
+</head>
+<body>
+
+    <h2>Blog Posts</h2>
+    {% for category in categories %}
+        <h3>{{ category.name }}</h3>
+        <ul>
+            {% for post in blog_posts %}
+                {% if post.category == category %}
+                    <li>
+                        <h4>{{ post.title }}</h4>
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        <p>
+                            {% with post.summary|split:" " as words %}
+                                {% if words|length > 15 %}
+                                    {{ words|slice:":15"|join:" " }}...
+                                {% else %}
+                                    {{ post.summary }}
+                                {% endif %}
+                            {% endwith %}
+                        </p>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <p>First Name: {{ profile.user.first_name }}</p>
+    <p>Last Name: {{ profile.user.last_name }}</p>
+    <p>Email: {{ profile.user.email }}</p>
+    <p>Address: {{ profile.address }}</p>
+    <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+</body>
+</html>

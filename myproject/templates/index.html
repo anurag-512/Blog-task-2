@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+</head>
+<body>
+    <h2>Signup</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label for="user_type">User Type:</label>
+        <select id="user_type" name="user_type">
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+        </select>
+        <button type="submit">Signup</button>
+    </form>
+</body>
+</html>

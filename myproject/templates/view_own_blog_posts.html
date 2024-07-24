@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog Posts</title>
+</head>
+<body>
+    <h2>My Blog Posts</h2>
+    <ul>
+        <button onclick="old_blog_page()">Create a New Blog</button>
+        {% for post in blog_posts %}
+            <li>{{ post.title }} - {{ post.is_draft|yesno:"Draft,Published" }}</li>
+        {% endfor %}
+    </ul>
+    <script src="/static/blog.js"></script>
+</body>
+</html>
